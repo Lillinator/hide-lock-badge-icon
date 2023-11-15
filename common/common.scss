@@ -49,8 +49,25 @@ $nested-list: (
 }
 
 @else {
+  @if $show_lock_icons_for_staff =="true" {
 
-  body:not(.staff) {
+    body:not(.staff) {
+
+      .menu-panel .search-link,
+      .menu-panel .categories-link,
+      .search-menu .results .restricted,
+      .badge-category__wrapper,
+      .category-drop .restricted,
+      [href^="/chat/c/"],
+      [href^="/c/"] {
+        .d-icon-lock {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @else {
 
     .menu-panel .search-link,
     .menu-panel .categories-link,
