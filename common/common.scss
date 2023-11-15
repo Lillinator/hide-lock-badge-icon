@@ -4,7 +4,6 @@ $list: str-to-list("#{$categories_and_channels}", "|");
 $nested-list: (
 );
 
-
 @if $categories_and_channels !="" {
 
   @each $item in $list {
@@ -15,7 +14,7 @@ $nested-list: (
 
   @each $lock-icon, $iconID in $nested-list {
 
-    .search-menu .results .restricted,
+    .search-menu .results .restricted [data-value="#{$iconID}"],
     .category-drop [data-value="#{$iconID}"] .restricted,
     [href^="/chat/c/#{$lock-icon}"],
     [href^="/c/#{$lock-icon}"] {
