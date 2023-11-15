@@ -14,8 +14,8 @@ $nested-list: (
 
   @each $lock-icon, $iconID in $nested-list {
 
-    .menu-panel .search-link .d-icon-lock, 
-    .menu-panel .categories-link .d-icon-lock,
+    .menu-panel .search-link, 
+    .menu-panel .categories-link,
     .search-menu .results .restricted [data-value="#{$iconID}"],
     .category-drop [data-value="#{$iconID}"] .restricted,
     [href^="/chat/c/#{$lock-icon}"],
