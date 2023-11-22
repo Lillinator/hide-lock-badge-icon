@@ -6,14 +6,7 @@ $nested-list: (
 
 @if $categories_and_channels !="" {
 
-  @each $item in $list {
-
-    $item: str-to-list("#{$item}", ";");
-    $nested-list: append($nested-list, $item);
-  }
-
-  @each $lock-icon, $iconID in $nested-list {
-
+  @each $iconID in $list {
     @if $show_lock_icons_for_staff =="true" {
       body:not(.staff) {
 
@@ -22,14 +15,16 @@ $nested-list: (
         .search-menu .results .restricted[data-category-id="#{$iconID}"],
         .badge-category__wrapper [data-category-id="#{$iconID}"],
         .category-drop [data-value="#{$iconID}"] .restricted,
-        [href^="/chat/c/#{$lock-icon}"],
-        [href^="/c/#{$lock-icon}"] {
+        .sidebar-section-link[data-category-id="#{$iconID}"],
+        .chat-drawer-header__title[data-category-id="#{$iconID}"],
+        .chat-channel-title.is-category[data-category-id="#{$iconID}"],
+        #public-channels > a[data-category-id="#{$iconID}"] {
           .d-icon-lock {
             display: none;
           }
         }
       }
-    }
+    } 
 
     @else {
 
@@ -38,8 +33,10 @@ $nested-list: (
       .search-menu .results .restricted[data-category-id="#{$iconID}"],
       .badge-category__wrapper [data-category-id="#{$iconID}"],
       .category-drop [data-value="#{$iconID}"] .restricted,
-      [href^="/chat/c/#{$lock-icon}"],
-      [href^="/c/#{$lock-icon}"] {
+      .sidebar-section-link[data-category-id="#{$iconID}"],
+      .chat-drawer-header__title[data-category-id="#{$iconID}"],
+      .chat-channel-title.is-category[data-category-id="#{$iconID}"],
+      #public-channels > [data-category-id="#{$iconID}"] {
         .d-icon-lock {
           display: none;
         }
