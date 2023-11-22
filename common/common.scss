@@ -6,19 +6,19 @@ $nested-list: (
 
 @if $categories_and_channels !="" {
 
-  @each $iconID in $list {
+  @each $categoryID in $list {
     @if $show_lock_icons_for_staff =="true" {
       body:not(.staff) {
-
-        .menu-panel .search-link[data-category-id="#{$iconID}"],
-        .menu-panel .categories-link[data-category-id="#{$iconID}"],
-        .search-menu .results .restricted[data-category-id="#{$iconID}"],
-        .badge-category__wrapper [data-category-id="#{$iconID}"],
-        .category-drop [data-value="#{$iconID}"] .restricted,
-        .sidebar-section-link[data-category-id="#{$iconID}"],
-        .chat-drawer-header__title[data-category-id="#{$iconID}"],
-        .chat-channel-title.is-category[data-category-id="#{$iconID}"],
-        #public-channels > a[data-category-id="#{$iconID}"] {
+ 
+        .menu-panel .search-link[data-category-id="#{$categoryID}"],
+        .menu-panel .categories-link[data-category-id="#{$categoryID}"],
+        .search-menu .results .restricted[data-category-id="#{$categoryID}"],
+        .badge-category__wrapper [data-category-id="#{$categoryID}"],
+        .category-drop [data-value="#{$categoryID}"] .restricted,
+        .sidebar-section-link[data-category-id="#{$categoryID}"],
+        .chat-drawer-header__title[data-category-id="#{$categoryID}"],
+        .chat-channel-title.is-category[data-category-id="#{$categoryID}"],
+        #public-channels > a[data-category-id="#{$categoryID}"] {
           .d-icon-lock {
             display: none;
           }
@@ -28,15 +28,15 @@ $nested-list: (
 
     @else {
 
-      .menu-panel .search-link[data-category-id="#{$iconID}"],
-      .menu-panel .categories-link[data-category-id="#{$iconID}"],
-      .search-menu .results .restricted[data-category-id="#{$iconID}"],
-      .badge-category__wrapper [data-category-id="#{$iconID}"],
-      .category-drop [data-value="#{$iconID}"] .restricted,
-      .sidebar-section-link[data-category-id="#{$iconID}"],
-      .chat-drawer-header__title[data-category-id="#{$iconID}"],
-      .chat-channel-title.is-category[data-category-id="#{$iconID}"],
-      #public-channels > [data-category-id="#{$iconID}"] {
+      .menu-panel .search-link[data-category-id="#{$categoryID}"],
+      .menu-panel .categories-link[data-category-id="#{$categoryID}"],
+      .search-menu .results .restricted[data-category-id="#{$categoryID}"],
+      .badge-category__wrapper [data-category-id="#{$categoryID}"],
+      .category-drop [data-value="#{$categoryID}"] .restricted,
+      .sidebar-section-link[data-category-id="#{$categoryID}"],
+      .chat-drawer-header__title[data-category-id="#{$categoryID}"],
+      .chat-channel-title.is-category[data-category-id="#{$categoryID}"],
+      #public-channels > [data-category-id="#{$categoryID}"] {
         .d-icon-lock {
           display: none;
         }
