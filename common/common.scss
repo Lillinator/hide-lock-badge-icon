@@ -1,15 +1,12 @@
 @import "str-to-list";
 
 $list: str-to-list("#{$categories_and_channels}", "|");
-$nested-list: (
-);
+$nested-list: ();
 
-@if $categories_and_channels !="" {
-
+@if $categories_and_channels != "" {
   @each $categoryID in $list {
-    @if $show_lock_icons_for_staff =="true" {
+    @if $show_lock_icons_for_staff == "true" {
       body:not(.staff) {
- 
         .menu-panel .search-link[data-category-id="#{$categoryID}"],
         .menu-panel .categories-link[data-category-id="#{$categoryID}"],
         .search-menu .results .restricted[data-category-id="#{$categoryID}"],
@@ -24,10 +21,7 @@ $nested-list: (
           }
         }
       }
-    } 
-
-    @else {
-
+    } @else {
       .menu-panel .search-link[data-category-id="#{$categoryID}"],
       .menu-panel .categories-link[data-category-id="#{$categoryID}"],
       .search-menu .results .restricted[data-category-id="#{$categoryID}"],
@@ -43,13 +37,9 @@ $nested-list: (
       }
     }
   }
-}
-
-@else {
-  @if $show_lock_icons_for_staff =="true" {
-
+} @else {
+  @if $show_lock_icons_for_staff == "true" {
     body:not(.staff) {
-
       .menu-panel .search-link,
       .menu-panel .categories-link,
       .search-menu .results .restricted,
@@ -62,10 +52,7 @@ $nested-list: (
         }
       }
     }
-  }
-
-  @else {
-
+  } @else {
     .menu-panel .search-link,
     .menu-panel .categories-link,
     .search-menu .results .restricted,
