@@ -1,45 +1,58 @@
 @import "str-to-list";
 
 $list: str-to-list("#{$categories_and_channels}", "|");
-$nested-list: ();
+$nested-list: (
+);
 
-@if $categories_and_channels != "" {
-  @each $categoryID in $list {
-    @if $show_lock_icons_for_staff == "true" {
+@if $categories_and_channels !="" {
+
+  @each $item in $list {
+
+    $item: str-to-list("#{$item}", ";");
+    $nested-list: append($nested-list, $item);
+  }
+
+  @each $lock-icon, $iconID in $nested-list {
+
+    @if $show_lock_icons_for_staff =="true" {
       body:not(.staff) {
-        .menu-panel .search-link[data-category-id="#{$categoryID}"],
-        .menu-panel .categories-link[data-category-id="#{$categoryID}"],
-        .search-menu .results .restricted[data-category-id="#{$categoryID}"],
-        .badge-category__wrapper [data-category-id="#{$categoryID}"],
-        .category-drop [data-value="#{$categoryID}"] .restricted,
-        .sidebar-section-link[data-category-id="#{$categoryID}"],
-        .chat-drawer-header__title[data-category-id="#{$categoryID}"],
-        .chat-channel-title.is-category[data-category-id="#{$categoryID}"],
-        #public-channels > a[data-category-id="#{$categoryID}"] {
+
+        .menu-panel .search-link[data-category-id="#{$iconID}"],
+        .menu-panel .categories-link[data-category-id="#{$iconID}"],
+        .search-menu .results .restricted[data-category-id="#{$iconID}"],
+        .badge-category__wrapper [data-category-id="#{$iconID}"],
+        .category-drop [data-value="#{$iconID}"] .restricted,
+        [href^="/chat/c/#{$lock-icon}"],
+        [href^="/c/#{$lock-icon}"] {
           .d-icon-lock {
             display: none;
           }
         }
       }
-    } @else {
-      .menu-panel .search-link[data-category-id="#{$categoryID}"],
-      .menu-panel .categories-link[data-category-id="#{$categoryID}"],
-      .search-menu .results .restricted[data-category-id="#{$categoryID}"],
-      .badge-category__wrapper [data-category-id="#{$categoryID}"],
-      .category-drop [data-value="#{$categoryID}"] .restricted,
-      .sidebar-section-link[data-category-id="#{$categoryID}"],
-      .chat-drawer-header__title[data-category-id="#{$categoryID}"],
-      .chat-channel-title.is-category[data-category-id="#{$categoryID}"],
-      #public-channels > [data-category-id="#{$categoryID}"] {
+    }
+
+    @else {
+
+      .menu-panel .search-link[data-category-id="#{$iconID}"],
+      .menu-panel .categories-link[data-category-id="#{$iconID}"],
+      .search-menu .results .restricted[data-category-id="#{$iconID}"],
+      .badge-category__wrapper [data-category-id="#{$iconID}"],
+      .category-drop [data-value="#{$iconID}"] .restricted,
+      [href^="/chat/c/#{$lock-icon}"],
+      [href^="/c/#{$lock-icon}"] {
         .d-icon-lock {
           display: none;
         }
       }
     }
   }
-} @else {
-  @if $show_lock_icons_for_staff == "true" {
+}
+
+@else {
+  @if $show_lock_icons_for_staff =="true" {
+
     body:not(.staff) {
+
       .menu-panel .search-link,
       .menu-panel .categories-link,
       .search-menu .results .restricted,
@@ -52,7 +65,10 @@ $nested-list: ();
         }
       }
     }
-  } @else {
+  }
+
+  @else {
+
     .menu-panel .search-link,
     .menu-panel .categories-link,
     .search-menu .results .restricted,
