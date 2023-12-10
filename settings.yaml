@@ -1,9 +1,8 @@
 categories_and_channels:
   type: list
-  list_type: category
   default: ""
   description:
-    en: "List of the secure categories and chat channels to hide the lock badge icon for.  Leave blank to hide for all secured categories."
+    en: "List of the secure categories and chat channels to hide the lock badge icon for.  Leave blank to hide for all secured categories. Must be in semi-colon delimited format with category-slug;category-ID. Channel slug name must be same as respective category slug name. Separate parent category and subcategory slugs with a backslash and use subcategory ID. (For example: staff;3 or lounge/vip;8)"
 
 show_lock_icons_for_staff:
   type: bool
