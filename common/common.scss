@@ -22,8 +22,8 @@ $nested-list: (
         .search-menu .results .restricted[data-category-id="#{$iconID}"],
         .badge-category__wrapper [data-category-id="#{$iconID}"],
         .category-drop [data-value="#{$iconID}"] .restricted,
-        [href^="/chat/c/#{$lock-icon}/#{iconID}"],
-        [href="/c/#{$lock-icon}/#{iconID}"] {
+        [href="/chat/c/#{$lock-icon}/#{$iconID}"],
+        [href="/c/#{$lock-icon}/#{$iconID}"] {
           .d-icon-lock {
             display: none;
           }
@@ -38,8 +38,8 @@ $nested-list: (
       .search-menu .results .restricted[data-category-id="#{$iconID}"],
       .badge-category__wrapper [data-category-id="#{$iconID}"],
       .category-drop [data-value="#{$iconID}"] .restricted,
-      [href="/chat/c/#{$lock-icon}/#{iconID}"],
-      [href="/c/#{$lock-icon}/#{iconID}"] {
+      [href="/chat/c/#{$lock-icon}/#{$iconID}"],
+      [href="/c/#{$lock-icon}/#{$iconID}"] {
         .d-icon-lock {
           display: none;
         }
