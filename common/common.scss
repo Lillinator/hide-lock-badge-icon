@@ -32,7 +32,9 @@ $nested-list: (
             display: none;
           }
         }
-      }
+        .category-title-name .d-icon-lock:has(+ .parent-box-link[href="/c/#{$lock-icon}/#{$iconID}"]) {
+          display: none;
+        }
     }
 
     @else {
@@ -48,6 +50,9 @@ $nested-list: (
         .d-icon-lock {
           display: none;
         }
+      }
+      .category-title-name .d-icon-lock:has(+ .parent-box-link[href="/c/#{$lock-icon}/#{$iconID}"]) {
+          display: none;
       }
     }
   }
