@@ -35,6 +35,7 @@ $nested-list: (
         .category-title-name .d-icon-lock:has(+ .parent-box-link[href="/c/#{$lock-icon}/#{$iconID}"]) {
           display: none;
         }
+      }
     }
 
     @else {
