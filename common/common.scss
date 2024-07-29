@@ -14,6 +14,9 @@ $nested-list: (
 
   @each $lock-icon, $iconID in $nested-list {
 
+        // Replace '/' with '-' in $lock-icon for use in classes
+    $lock-icon-class: str-replace($lock-icon, "/", "-");
+    
     @if $show_lock_icons_for_staff =="true" {
       body:not(.staff) {
 
@@ -24,7 +27,7 @@ $nested-list: (
         .category-drop [data-value="#{$iconID}"] .restricted,
         [href="/chat/c/#{$lock-icon}/#{$iconID}"],
         [href="/c/#{$lock-icon}/#{$iconID}"], 
-        .category-#{$lock-icon} .category-title-name {
+        .category-#{$lock-icon-class} .category-title-name {
           .d-icon-lock {
             display: none;
           }
@@ -41,7 +44,7 @@ $nested-list: (
       .category-drop [data-value="#{$iconID}"] .restricted,
       [href="/chat/c/#{$lock-icon}/#{$iconID}"],
       [href="/c/#{$lock-icon}/#{$iconID}"],
-      .category-#{$lock-icon} .category-title-name {
+      .category-#{$lock-icon-class} .category-title-name {
         .d-icon-lock {
           display: none;
         }
@@ -61,7 +64,8 @@ $nested-list: (
       .badge-category__wrapper,
       .category-drop .restricted,
       [href^="/chat/c/"],
-      [href^="/c/"] {
+      [href^="/c/"],
+      .category-title-name {
         .d-icon-lock {
           display: none;
         }
@@ -77,7 +81,8 @@ $nested-list: (
     .badge-category__wrapper,
     .category-drop .restricted,
     [href^="/chat/c/"],
-    [href^="/c/"] {
+    [href^="/c/"],
+    .category-title-name {
       .d-icon-lock {
         display: none;
       }
