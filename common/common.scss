@@ -28,9 +28,12 @@ $nested-list: (
         [href="/chat/c/#{$lock-icon}/#{$iconID}"],
         [href="/c/#{$lock-icon}/#{$iconID}"], 
         .category-#{$lock-icon-class} .category-title-name {
-          .d-icon-lock {
+          .d-icon-#{$alternative_category_lock_icon} {
             display: none;
           }
+        }
+        .category-title-name .d-icon-#{$alternative_category_lock_icon}:has(+ .parent-box-link[href="/c/#{$lock-icon}/#{$iconID}"]) {
+          display: none;
         }
       }
     }
@@ -45,9 +48,12 @@ $nested-list: (
       [href="/chat/c/#{$lock-icon}/#{$iconID}"],
       [href="/c/#{$lock-icon}/#{$iconID}"],
       .category-#{$lock-icon-class} .category-title-name {
-        .d-icon-lock {
+        .d-icon-#{$alternative_category_lock_icon} {
           display: none;
         }
+      }
+      .category-title-name .d-icon-#{$alternative_category_lock_icon}:has(+ .parent-box-link[href="/c/#{$lock-icon}/#{$iconID}"]) {
+          display: none;
       }
     }
   }
@@ -66,7 +72,7 @@ $nested-list: (
       [href^="/chat/c/"],
       [href^="/c/"],
       .category-title-name {
-        .d-icon-lock {
+        .d-icon-#{$alternative_category_lock_icon} {
           display: none;
         }
       }
@@ -83,7 +89,7 @@ $nested-list: (
     [href^="/chat/c/"],
     [href^="/c/"],
     .category-title-name {
-      .d-icon-lock {
+      .d-icon-#{$alternative_category_lock_icon} {
         display: none;
       }
     }
