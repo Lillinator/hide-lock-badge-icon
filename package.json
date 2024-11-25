@@ -1,13 +1,9 @@
 {
-  "name": "discourse-nested-categories",
-  "version": "4.0.1",
+  "name": "discourse-hide-lock-badge-icon",
   "repository": "https://github.com/Lillinator/hide-lock-badge-icon",
-  "author": "@Lilly",
+  "author": "Lilly",
   "license": "MIT",
   "devDependencies": {
-    "@discourse/lint-configs": "^1.3.1",
-    "ember-template-lint": "^5.13.0",
-    "eslint": "^8.55.0",
-    "prettier": "^2.8.8"
+    "eslint-config-discourse": "latest"
   }
 }
