@@ -13,4 +13,4 @@ show_lock_icons_for_staff:
 alternative_category_lock_icon:
   default: "lock"
   description:
-    en: "If you are using an alternative lock icon, change this to the FontAwesome 5 icon name here"
+    en: "If you are using an alternative lock icon, change this to the FontAwesome 6 icon name here"
