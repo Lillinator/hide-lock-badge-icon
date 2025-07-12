@@ -4,6 +4,21 @@ $list: str-to-list("#{$categories_and_channels}", "|");
 $nested-list: (
 );
 
+// ## new lock-icon css snippets
+// 
+// .badge-category__wrapper [class*=“d-icon-category.restricted”] {
+// display: none;
+// }
+
+// .badge-category__wrapper [class*="d-icon-category.restricted"] {
+//   display: none;
+// }
+
+// .topic-status .d-icon-lock → .topic-status [class*="d-icon-topic.closed"]
+
+// ##
+
+
 @if $categories_and_channels !="" {
 
   @each $item in $list {
@@ -23,7 +38,7 @@ $nested-list: (
         .menu-panel .search-link[data-category-id="#{$iconID}"],
         .menu-panel .categories-link[data-category-id="#{$iconID}"],
         .search-menu .results .restricted[data-category-id="#{$iconID}"],
-        .badge-category__wrapper [data-category-id="#{$iconID}"],
+        .badge-category__wrapper [class*="d-icon-category.restricted"] [data-category-id="#{$iconID}"],
         .category-drop [data-value="#{$iconID}"] .restricted,
         [href="/chat/c/#{$lock-icon}/#{$iconID}"],
         [href="/c/#{$lock-icon}/#{$iconID}"], 
@@ -43,7 +58,7 @@ $nested-list: (
       .menu-panel .search-link[data-category-id="#{$iconID}"],
       .menu-panel .categories-link[data-category-id="#{$iconID}"],
       .search-menu .results .restricted[data-category-id="#{$iconID}"],
-      .badge-category__wrapper [data-category-id="#{$iconID}"],
+      .badge-category__wrapper [class*="d-icon-category.restricted"] [data-category-id="#{$iconID}"],
       .category-drop [data-value="#{$iconID}"] .restricted,
       [href="/chat/c/#{$lock-icon}/#{$iconID}"],
       [href="/c/#{$lock-icon}/#{$iconID}"],
@@ -67,7 +82,7 @@ $nested-list: (
       .menu-panel .search-link,
       .menu-panel .categories-link,
       .search-menu .results .restricted,
-      .badge-category__wrapper,
+      .badge-category__wrapper [class*="d-icon-category.restricted"],
       .category-drop .restricted,
       [href^="/chat/c/"],
       [href^="/c/"],
@@ -84,7 +99,7 @@ $nested-list: (
     .menu-panel .search-link,
     .menu-panel .categories-link,
     .search-menu .results .restricted,
-    .badge-category__wrapper,
+    .badge-category__wrapper [class*="d-icon-category.restricted"],
     .category-drop .restricted,
     [href^="/chat/c/"],
     [href^="/c/"],
@@ -95,3 +110,5 @@ $nested-list: (
     }
   }
 }
+
+
