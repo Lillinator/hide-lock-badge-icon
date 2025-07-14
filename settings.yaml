@@ -9,8 +9,3 @@ show_lock_icons_for_staff:
   default: true
   description:
     en: "Disable this if you want the lock badge icon to be hidden for staff as well as regular users."
-
-alternative_category_lock_icon:
-  default: "lock"
-  description:
-    en: "If you are using an alternative lock icon, change this to the FontAwesome 6 icon name here"
