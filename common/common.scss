@@ -25,14 +25,15 @@ $nested-list: (
         .search-menu .results .restricted[data-category-id="#{$iconID}"],
         .badge-category__wrapper [data-category-id="#{$iconID}"],
         .category-drop [data-value="#{$iconID}"] .restricted,
-        [href="/chat/c/#{$lock-icon}/#{$iconID}"],
-        [href="/c/#{$lock-icon}/#{$iconID}"], 
+        [href^="/chat/c/#{$lock-icon}/#{$iconID}"],
+        [href^="/c/#{$lock-icon}/#{$iconID}"], 
         .category-#{$lock-icon-class} .category-title-name {
-          .d-icon-#{$alternative_category_lock_icon} {
+          .d-icon-lock,
+          [class*="d-icon-category.restricted"] {
             display: none;
           }
         }
-        .category-title-name .d-icon-#{$alternative_category_lock_icon}:has(+ .parent-box-link[href="/c/#{$lock-icon}/#{$iconID}"]) {
+        .category-title-name [class*="d-icon-category.restricted"]:has(+ .parent-box-link[href="/c/#{$lock-icon}/#{$iconID}"]) {
           display: none;
         }
       }
@@ -45,14 +46,15 @@ $nested-list: (
       .search-menu .results .restricted[data-category-id="#{$iconID}"],
       .badge-category__wrapper [data-category-id="#{$iconID}"],
       .category-drop [data-value="#{$iconID}"] .restricted,
-      [href="/chat/c/#{$lock-icon}/#{$iconID}"],
-      [href="/c/#{$lock-icon}/#{$iconID}"],
+      [href^="/chat/c/#{$lock-icon}/#{$iconID}"],
+      [href^="/c/#{$lock-icon}/#{$iconID}"],
       .category-#{$lock-icon-class} .category-title-name {
-        .d-icon-#{$alternative_category_lock_icon} {
+         .d-icon-lock,
+        [class*="d-icon-category.restricted"] {
           display: none;
         }
       }
-      .category-title-name .d-icon-#{$alternative_category_lock_icon}:has(+ .parent-box-link[href="/c/#{$lock-icon}/#{$iconID}"]) {
+      .category-title-name [class*="d-icon-category.restricted"]:has(+ .parent-box-link[href="/c/#{$lock-icon}/#{$iconID}"]) {
           display: none;
       }
     }
@@ -72,7 +74,8 @@ $nested-list: (
       [href^="/chat/c/"],
       [href^="/c/"],
       .category-title-name {
-        .d-icon-#{$alternative_category_lock_icon} {
+         .d-icon-lock,
+        [class*="d-icon-category.restricted"] {
           display: none;
         }
       }
@@ -89,7 +92,8 @@ $nested-list: (
     [href^="/chat/c/"],
     [href^="/c/"],
     .category-title-name {
-      .d-icon-#{$alternative_category_lock_icon} {
+       .d-icon-lock,
+      [class*="d-icon-category.restricted"] {
         display: none;
       }
     }
