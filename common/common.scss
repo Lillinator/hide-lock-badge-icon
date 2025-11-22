@@ -1,68 +1,4 @@
-@import "str-to-list";
-
-$list: str-to-list("#{$categories_and_channels}", "|");
-$nested-list: (
-);
-
-@if $categories_and_channels !="" {
-
-  @each $item in $list {
-
-    $item: str-to-list("#{$item}", ";");
-    $nested-list: append($nested-list, $item);
-  }
-
-  @each $lock-icon, $iconID in $nested-list {
-
-        // Replace '/' with '-' in $lock-icon for use in classes
-    $lock-icon-class: str-replace($lock-icon, "/", "-");
-    
-    @if $show_lock_icons_for_staff =="true" {
-      body:not(.staff) {
-
-        .menu-panel .search-link[data-category-id="#{$iconID}"],
-        .menu-panel .categories-link[data-category-id="#{$iconID}"],
-        .search-menu .results .restricted[data-category-id="#{$iconID}"],
-        .badge-category__wrapper [data-category-id="#{$iconID}"],
-        .category-drop [data-value="#{$iconID}"] .restricted,
-        [href^="/chat/c/#{$lock-icon}/#{$iconID}"],
-        [href^="/c/#{$lock-icon}/#{$iconID}"], 
-        .category-#{$lock-icon-class} .category-title-name {
-          .d-icon-lock,
-          [class*="d-icon-category.restricted"] {
-            display: none;
-          }
-        }
-        .category-title-name [class*="d-icon-category.restricted"]:has(+ .parent-box-link[href="/c/#{$lock-icon}/#{$iconID}"]) {
-          display: none;
-        }
-      }
-    }
-
-    @else {
-
-      .menu-panel .search-link[data-category-id="#{$iconID}"],
-      .menu-panel .categories-link[data-category-id="#{$iconID}"],
-      .search-menu .results .restricted[data-category-id="#{$iconID}"],
-      .badge-category__wrapper [data-category-id="#{$iconID}"],
-      .category-drop [data-value="#{$iconID}"] .restricted,
-      [href^="/chat/c/#{$lock-icon}/#{$iconID}"],
-      [href^="/c/#{$lock-icon}/#{$iconID}"],
-      .category-#{$lock-icon-class} .category-title-name {
-         .d-icon-lock,
-        [class*="d-icon-category.restricted"] {
-          display: none;
-        }
-      }
-      .category-title-name [class*="d-icon-category.restricted"]:has(+ .parent-box-link[href="/c/#{$lock-icon}/#{$iconID}"]) {
-          display: none;
-      }
-    }
-  }
-}
-
-@else {
-  @if $show_lock_icons_for_staff =="true" {
+@if $show_lock_icons_for_staff =="true" {
 
     body:not(.staff) {
 
@@ -80,9 +16,9 @@ $nested-list: (
         }
       }
     }
-  }
+}
 
-  @else {
+@else {
 
     .menu-panel .search-link,
     .menu-panel .categories-link,
@@ -97,5 +33,5 @@ $nested-list: (
         display: none;
       }
     }
-  }
 }
+
